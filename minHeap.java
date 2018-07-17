@@ -1,13 +1,14 @@
-public class minHeap {
-    private Integer[] array;
+public class minHeap<E extends Comparable<E>> {
+    private E[] array;
     private int size;
 
+
     public minHeap(int capacity) {
-        array = new Integer[capacity];
+        array = (E[]) new Object[capacity];
         size = 0;
     }
 
-    public minHeap(Integer[] array) {
+    public minHeap(E[] array) {
         this.array = array;
         size = array.length;
         heapify();
@@ -24,7 +25,7 @@ public class minHeap {
 
     }
 
-    public void offer(Integer element) { //null is not allowed
+    public void offer(E element) { //null is not allowed
         if(size < this.array.length) {
             array[size++] = element;
             percolateUp(size - 1);
@@ -32,11 +33,11 @@ public class minHeap {
 
     }
 
-    public Integer poll() {
+    public E poll() {
         if(this.size == 0) {
             return null;
         }
-        int value = array[0];
+        E value = array[0];
         array[0] = array[size - 1];
         size--;
         percolateDown(0);
@@ -44,7 +45,7 @@ public class minHeap {
 
     }
 
-    public Integer peek() {
+    public E peek() {
         if(this.size == 0) {
             return null;
         }
@@ -92,7 +93,7 @@ public class minHeap {
     }
 
     private void swap(int i, int j) {
-        Integer tmp = this.array[i];
+        E tmp = this.array[i];
         this.array[i] = this.array[j];
         this.array[j] = tmp;
     }
