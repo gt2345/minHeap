@@ -1,14 +1,14 @@
-public class minHeap<E extends Comparable<E>> {
+public class MinHeap<E extends Comparable<E>> {
     private E[] array;
     private int size;
 
 
-    public minHeap(int capacity) {
-        array = (E[]) new Object[capacity];
+    public MinHeap(int capacity) {
+        array = (E[]) new Comparable[capacity];
         size = 0;
     }
 
-    public minHeap(E[] array) {
+    public MinHeap(E[] array) {
         this.array = array;
         size = array.length;
         heapify();
@@ -101,7 +101,7 @@ public class minHeap<E extends Comparable<E>> {
 
     public static void main(String[] ags) {
         System.out.println("hello");
-        minHeap h = new minHeap(10);
+        MinHeap h = new MinHeap(10);
         h.offer(20);
         h.offer(10);
         h.offer(5);
